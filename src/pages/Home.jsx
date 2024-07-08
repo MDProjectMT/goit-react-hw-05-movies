@@ -25,9 +25,7 @@ export default function Home() {
       <ul>
         {trendingMovies.map((trendingMovie) => (
           <li key={trendingMovie.id}>
-            <Link to={`/movies/${trendingMovie.id}`}>
-              {trendingMovie.title}
-            </Link>
+            <Link to={`movies/${trendingMovie.id}`}>{trendingMovie.title}</Link>
           </li>
         ))}
       </ul>

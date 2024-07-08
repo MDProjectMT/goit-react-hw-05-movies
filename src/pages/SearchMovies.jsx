@@ -43,7 +43,9 @@ export default function Movies() {
         {searchResults.map((searchMovie) => {
           return (
             <li key={searchMovie.id}>
-              <Link to={`/movies/${searchMovie.id}`}>{searchMovie.title}</Link>
+              <Link to={`/goit-react-hw-05-movies/movies/${searchMovie.id}`}>
+                {searchMovie.title}
+              </Link>
             </li>
           );
         })}

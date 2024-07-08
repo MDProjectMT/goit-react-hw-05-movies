@@ -50,12 +50,12 @@ const MovieDetails = () => {
           <div className={styles.info}>
             <h3 className={styles.title}>Additional information</h3>
             <div>
-              <Link to={`/movies/${movieId}/cast`}>
+              <Link to={`cast`}>
                 <button type="button">CAST</button>
               </Link>
             </div>
             <div className={styles.button}>
-              <Link to={`/movies/${movieId}/reviews`}>
+              <Link to={`reviews`}>
                 <button type="button">REVIEWS</button>
               </Link>
             </div>
