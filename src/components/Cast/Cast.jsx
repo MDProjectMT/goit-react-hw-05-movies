@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import styles from "./Cast.module.scss";
+import PropTypes from "prop-types";
 
 export default function Cast() {
   const { movieId } = useParams();
@@ -47,3 +48,15 @@ export default function Cast() {
     </div>
   );
 }
+
+Cast.propTypes = {
+  movieId: PropTypes.string,
+  cast: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      name: PropTypes.string.isRequired,
+      profile_path: PropTypes.string,
+      character: PropTypes.string.isRequired,
+    })
+  ),
+};

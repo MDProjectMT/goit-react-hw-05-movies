@@ -2,6 +2,7 @@ import { Outlet, Link } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
 import styles from "./SearchMovies.module.scss";
+import PropTypes from "prop-types";
 
 export default function Movies() {
   const [inputValue, setInputValue] = useState("");
@@ -54,3 +55,15 @@ export default function Movies() {
     </div>
   );
 }
+
+Movies.propTypes = {
+  inputValue: PropTypes.string,
+  searchResults: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      title: PropTypes.string.isRequired,
+    })
+  ),
+  handleInputChange: PropTypes.func,
+  handleSubmit: PropTypes.func,
+};

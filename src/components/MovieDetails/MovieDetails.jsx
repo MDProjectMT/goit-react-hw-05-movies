@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams, Link, Outlet } from "react-router-dom";
 import axios from "axios";
 import styles from "./MovieDetails.module.scss";
+import PropTypes from "prop-types";
 
 const MovieDetails = () => {
   const { movieId } = useParams();
@@ -65,6 +66,24 @@ const MovieDetails = () => {
       )}
     </div>
   );
+};
+
+MovieDetails.propTypes = {
+  movieId: PropTypes.string,
+  movie: PropTypes.shape({
+    poster_path: PropTypes.string,
+    tagline: PropTypes.string,
+    title: PropTypes.string.isRequired,
+    release_date: PropTypes.string.isRequired,
+    vote_average: PropTypes.number.isRequired,
+    overview: PropTypes.string,
+    genres: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        name: PropTypes.string.isRequired,
+      })
+    ),
+  }),
 };
 
 export default MovieDetails;

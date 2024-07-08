@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import PropTypes from "prop-types";
 
 export default function Reviews() {
   const { movieId } = useParams();
@@ -38,3 +39,13 @@ export default function Reviews() {
     return <div>We don't have any reviews for this movie</div>;
   }
 }
+
+Reviews.propTypes = {
+  reviews: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      author: PropTypes.string.isRequired,
+      content: PropTypes.string.isRequired,
+    })
+  ),
+};
